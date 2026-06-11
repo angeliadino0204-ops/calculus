@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Integrasi Mudah</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; text-align: center; background-color: #f4f4f9; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        input, button { padding: 10px; margin: 10px 0; width: 80px; text-align: center; font-size: 16px; }
+        button { width: 100%; background-color: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #da559c; }
+        .result { font-size: 18px; font-weight: bold; margin-top: 20px; color: #333; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Kalkulator Integrasi Mudah</h2>
+    <p>Fungsi: <strong>f(x) = x²</strong></p>
+    <p>Masukkan sempadan untuk mencari Luas di bawah graf:</p>
+    
+    <label for="lower">Sempadan Bawah (a):</label><br>
+    <input type="number" id="lower" value="0"><br>
+    
+    <label for="upper">Sempadan Atas (b):</label><br>
+    <input type="number" id="upper" value="2"><br>
+    
+    <button onclick="kiraIntegrasi()">Kira Luas</button>
+    
+    <div class="result" id="output">Luas: </div>
+</div>
+
+<script>
+function kiraIntegrasi() {
+    let a = parseFloat(document.getElementById('lower').value);
+    let b = parseFloat(document.getElementById('upper').value);
+    
+    // Kamiran bagi x^2 adalah (x^3)/3
+    let hasilB = Math.pow(b, 3) / 3;
+    let hasilA = Math.pow(a, 3) / 3;
+    let luas = hasilB - hasilA;
+    
+    document.getElementById('output').innerText = "Luas bagi f(x)=x² dari " + a + " ke " + b + " ialah: " + luas.toFixed(4) + " unit²";
+}
+</script>
+
+</body>
+</html>
